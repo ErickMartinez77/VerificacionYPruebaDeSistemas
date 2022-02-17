@@ -1,0 +1,14 @@
+calculadoraTest/Calculadora2Test.java
+ calculadoraTest.Calculadora2Test
+mockTest/CalculadoraMockTest.java
+ mockTest.CalculadoraMockTest
+calculadoraTest/CalculadoraTest.java
+ calculadoraTest.CalculadoraTest
+mockTest/CalculadoraWithoutMock.java
+ mockTest.CalculadoraWithoutMock
+BasicSyntaxis.java
+ BasicSyntaxis
+notasTest/NotasTest.java
+ notasTest.NotasTest
+fechasTest/FechasTest.java
+ fechasTest.FechasTest
