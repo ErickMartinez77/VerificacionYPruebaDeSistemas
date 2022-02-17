@@ -1,48 +1,71 @@
 package ejercicio1Fechas;
 
 public class DateUtils {
-    public String obtenerFecha(int day, String month, int year){
+
+
+    public String obtenerFecha(int day, String month, int year) {
         String msg = "";
-        if (day<1 || day>31){
+        boolean dayInc = false;
+        boolean monthInc = false;
+        boolean yearInc = false;
+
+        if (day < 1 || day > 31) {
             msg = "dia incorrecto";
-        } else if(month!="enero"&month!="febrero"&month!="marzo"&month!="abril"&month!="mayo"&month!="junio"&month!="julio"&
-                month!="agosto"&month!="septiembre"&month!="octubre"&month!="noviembre"&month!="diciembre"){
+            dayInc = true;
+        }
+        if (!month.contentEquals("enero") && !month.contentEquals("febrero") && !month.contentEquals("marzo") &&
+                !month.contentEquals("abril") && !month.contentEquals("mayo") && !month.contentEquals("junio") &&
+                !month.contentEquals("julio") && !month.contentEquals("agosto") && !month.contentEquals("septiembre") &&
+                !month.contentEquals("octubre") && !month.contentEquals("noviembre") && !month.contentEquals("diciembre")) {
             msg = "mes incorrecto";
-        }else{
-            if (day >=1 && day <= 30){
+            monthInc = true;
+        }
+        if (year < 0 || year > 3000) {
+            msg = "gestion incorrecta";
+            yearInc = true;
+        }
+
+        if(!dayInc && !monthInc && !yearInc){
+            if (day >= 1 && day <= 30) {
                 day++;
-                msg= day +" "+ month +" "+ year;
-            } else if (day==31) {
+                msg = day + " " + month + " " + year;
+            } else if (day == 31) {
                 int dayA = 1;
                 String monthA = "";
-                if (month == "enero") {
+                if (month.contentEquals("enero")) {
                     monthA = "febrero";
-                } else if (month == "febrero") {
+                } else if (month.contentEquals("febrero")) {
                     monthA = "marzo";
-                } else if (month == "marzo") {
+                } else if (month.contentEquals("marzo")) {
                     monthA = "abril";
-                } else if (month == "abril") {
+                } else if (month.contentEquals("abril")) {
                     monthA = "mayo";
-                } else if (month == "mayo") {
+                } else if (month.contentEquals("mayo")) {
                     monthA = "junio";
-                } else if (month == "junio") {
+                } else if (month.contentEquals("junio")) {
                     monthA = "julio";
-                } else if (month == "julio") {
+                } else if (month.contentEquals("julio")) {
                     monthA = "agosto";
-                } else if (month == "agosto") {
+                } else if (month.contentEquals("agosto")) {
                     monthA = "septiembre";
-                } else if (month == "septiembre") {
+                } else if (month.contentEquals("septiembre")) {
                     monthA = "octubre";
-                } else if (month == "octubre") {
+                } else if (month.contentEquals("octubre")) {
                     monthA = "noviembre";
-                } else if (month == "noviembre") {
+                } else if (month.contentEquals("noviembre")) {
                     monthA = "diciembre";
-                } else if (month == "diciembre") {
+                } else if (month.contentEquals("diciembre")) {
                     monthA = "enero";
                 }
                 msg = dayA + " " + monthA + " " + year;
             }
         }
-        return msg;
+
+        if((dayInc && monthInc)||(dayInc && yearInc) || (monthInc && yearInc)){
+            return "ingresar nuevos datos";
+        }else {
+            return msg;
+        }
+
     }
 }
